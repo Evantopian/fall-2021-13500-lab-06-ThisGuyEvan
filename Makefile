@@ -1,16 +1,18 @@
-main: main.o funcs.o
-	g++ -o main main.o funcs.o
+main: main.o 
+	g++ -o main main.o 
 
-tests: tests.o funcs.o
-	g++ -o tests tests.o funcs.o
+tests: tests.o 
+	g++ -o tests tests.o 
+
+test-ascii: test-ascii.o
+	g++ -o test-ascii test-ascii.o
 
 
+main.o: main.cpp 
 
-funcs.o: funcs.cpp funcs.h
+tests.o: tests.cpp doctest.h 
 
-main.o: main.cpp funcs.h
-
-tests.o: tests.cpp doctest.h funcs.h
+test-ascii.o: test-ascii.cpp
 
 clean:
-	rm -f main.o funcs.o tests.o
+	rm -f main main.o  tests.o test-ascii test-ascii.o
