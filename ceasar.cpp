@@ -29,7 +29,7 @@ std::string encryptCaesar(std::string s, int rShift){
   std::string encrypted = "";
 
   for (int i = 0; i < s.length(); i++){
-    // if uppercase, then run as shiftChar as lowercase and revert, else run as lowercase.
+    // if uppercase, then run shiftChar as lowercase then revert, else run as lowercase.
     encrypted += std::isupper(s[i]) ? toupper(shiftChar(tolower(s[i]), rShift)) : shiftChar(s[i], rShift);
   }
   return encrypted;
