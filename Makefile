@@ -1,10 +1,10 @@
-OBJECTS = ceasar.o vigenere.o decrypt.o 
+OBJECTS = caesar.o vigenere.o decrypt.o 
 
 main: main.o $(OBJECTS)
 	g++ -o main main.o $(OBJECTS)
 
-tests: tests.o 
-	g++ -o tests tests.o 
+tests: tests.o $(OBJECTS) 
+	g++ -o tests tests.o $(OBJECTS)
 
 test-ascii: test-ascii.o
 	g++ -o test-ascii test-ascii.o
@@ -17,12 +17,12 @@ tests.o: tests.cpp doctest.h
 
 test-ascii.o: test-ascii.cpp
 
-ceasar.o: ceasar.cpp ceasar.h
+caesar.o: caesar.cpp caesar.h
 
-vigenere.o: vigenere.cpp vigenere.h ceasar.h
+vigenere.o: vigenere.cpp vigenere.h caesar.h
 
 decrypt.o: decrypt.cpp decrypt.h
 
 
 clean:
-	rm -f main main.o  tests.o test-ascii test-ascii.o $(OBJECTS) 
+	rm -f main main.o tests tests.o test-ascii test-ascii.o $(OBJECTS) 

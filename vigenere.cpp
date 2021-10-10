@@ -1,7 +1,16 @@
+/*
+Author: Evan Huang
+Course: CSCI-135
+Instructor: Mike Zamansky
+Assignment: Lab 06
+
+  - Functions for Task C, Vigenere's Cipher.
+*/
+
 #include <cctype>
 #include <iostream>
 #include "vigenere.h"
-#include "ceasar.h"
+#include "caesar.h"
 
 
 // made this function since the built in find function returns 
@@ -16,22 +25,22 @@ int findIndex(char ch){
 }
 
 
-std::string encryptVigenere(std::string txt, std::string keyword){
+std::string encryptVigenere(std::string txt, std::string key){
   std::string encrypted = "";
   int k = 1;
   
-  for (int i = 0; i < txt.length()+1; i++){
+  for (int i = 0; i < txt.length(); i++){
     
     if (findIndex(tolower(txt[i])) != -1){
-      if (k % (keyword.length()+1) == 0){
+      if (k % (key.length()+1) == 0){
         k = 1;
       }
 
       if (isupper(txt[i])){
-        encrypted += toupper(shiftChar(tolower(txt[i]), findIndex(keyword[k-1])));
+        encrypted += toupper(shiftChar(tolower(txt[i]), findIndex(key[k-1])));
       }
       else{
-        encrypted += shiftChar(txt[i], findIndex(keyword[k-1]));
+        encrypted += shiftChar(txt[i], findIndex(key[k-1]));
       }
 
       k++;  

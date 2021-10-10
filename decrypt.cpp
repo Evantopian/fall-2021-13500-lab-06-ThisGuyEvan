@@ -1,6 +1,15 @@
+/*
+Author: Evan Huang
+Course: CSCI-135
+Instructor: Mike Zamansky
+Assignment: Lab 06
+
+  - Decryption functions for caesar's and vigenere's ciphers.
+*/
+
 #include <cctype>
 #include <iostream>
-#include "ceasar.h"
+#include "caesar.h"
 #include "vigenere.h"
 
 

@@ -1,5 +1,15 @@
+/*
+Author: Evan Huang
+Course: CSCI-135
+Instructor: Mike Zamansky
+Assignment: Lab 06
+
+  - Functions to complete task B, Caesar's Cipher.
+*/
+
+
 #include <iostream>
-#include "ceasar.h"
+#include "caesar.h"
 #include "vigenere.h"
 
 const std::string alpha{"abcdefghijklmnopqrstuvwxyz"};
@@ -8,7 +18,7 @@ char shiftChar(char ch, int rShift){
     int i = findIndex(ch);
     // if the shift exceeds the size of the array, then cycle the array, else shift normally.
     if (i != -1)
-      ch = (rShift+i) > alpha.size() ? alpha[(rShift+i) % alpha.size()] : alpha[rShift+i];
+      ch = (rShift+i) >= alpha.size() ? alpha[(rShift+i) % alpha.size()] : alpha[rShift+i];
   
   return ch;
 }
