@@ -1,4 +1,3 @@
-#include <cctype>
 #include <iostream>
 #include "ceasar.h"
 
@@ -9,11 +8,7 @@ const std::string alpha{"abcdefghijklmnopqrstuvwxyz"};
 char shiftChar(char ch, int rShift){
   int i = 0;
 
-  while (true){
-    if (i > alpha.size()){
-      return ch;
-    }
-
+  while (i < alpha.size()){
     if (ch == alpha[i]){
       // if the shift exceeds the size of the array, then cycle the array, else shift normally.
       ch = (rShift+i) > alpha.size() ? alpha[(rShift+i) % alpha.size()] : alpha[rShift+i];
@@ -34,5 +29,4 @@ std::string encryptCaesar(std::string s, int rShift){
   }
   return encrypted;
 }
-
 
