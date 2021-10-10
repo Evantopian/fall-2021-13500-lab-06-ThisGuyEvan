@@ -1,7 +1,7 @@
-OBJECTS = main.o ceasar.o vigenere.o 
+OBJECTS = ceasar.o vigenere.o decrypt.o 
 
-main: main.o ceasar.o vigenere.o
-	g++ -o main $(OBJECTS)
+main: main.o $(OBJECTS)
+	g++ -o main main.o $(OBJECTS)
 
 tests: tests.o 
 	g++ -o tests tests.o 
@@ -21,6 +21,8 @@ ceasar.o: ceasar.cpp ceasar.h
 
 vigenere.o: vigenere.cpp vigenere.h ceasar.h
 
+decrypt.o: decrypt.cpp decrypt.h
+
 
 clean:
-	rm -f main main.o  tests.o test-ascii test-ascii.o ceasar.o vigenere.o
+	rm -f main main.o  tests.o test-ascii test-ascii.o $(OBJECTS) 

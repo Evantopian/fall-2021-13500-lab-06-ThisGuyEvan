@@ -4,9 +4,6 @@
 #include "ceasar.h"
 
 
-const std::string alpha{"abcdefghijklmnopqrstuvwxyz"};
-
-
 // made this function since the built in find function returns 
 // massive numbers if  the value is not in range.
 int findIndex(char ch){

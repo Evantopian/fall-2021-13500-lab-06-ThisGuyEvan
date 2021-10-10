@@ -1,6 +1,5 @@
 #include <iostream>
 #include <string>
-#include "test-ascii.h"
 
 
 void ascii_value(std::string s){

@@ -1,21 +1,15 @@
 #include <iostream>
 #include "ceasar.h"
-
+#include "vigenere.h"
 
 const std::string alpha{"abcdefghijklmnopqrstuvwxyz"};
 
-
 char shiftChar(char ch, int rShift){
-  int i = 0;
-
-  while (i < alpha.size()){
-    if (ch == alpha[i]){
-      // if the shift exceeds the size of the array, then cycle the array, else shift normally.
+    int i = findIndex(ch);
+    // if the shift exceeds the size of the array, then cycle the array, else shift normally.
+    if (i != -1)
       ch = (rShift+i) > alpha.size() ? alpha[(rShift+i) % alpha.size()] : alpha[rShift+i];
-      break;
-    }
-    i++;
-  }
+  
   return ch;
 }
 
